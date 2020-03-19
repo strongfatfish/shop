@@ -1,0 +1,42 @@
+@mixin border-1px($color) {
+  position: relative;
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5) {
+    &::after {
+      transform: scaleY(0.7);
+      content: '';
+      width: 100%;
+      border-bottom: 1px solid $color;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {
+    &::after {
+      transform: scaleY(0.5);
+      content: '';
+      width: 100%;
+      border-bottom: 1px solid $color;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}
+@mixin border-none {
+  &:after {
+    display: none;
+  }
+}
+@mixin bgImg($url) {
+  background-image: url($url +"@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3){
+    background-image: url($url +"@3x.png");
+  }
+}
+@mixin font($size,$height) {
+  font-size: $size;
+  font-weight: 200;
+  line-height: $height;
+  color: rgb(255,255,255);
+}
